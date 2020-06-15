@@ -11,8 +11,8 @@ class CityData {
 
   var visibility;
   var windSpeed;
-  int sunrise;
-  int sunset;
+  var sunrise;
+  var sunset;
 
   String country;
   String cityName;
@@ -43,7 +43,7 @@ class CityData {
 }
 
 class Weather {
-  int id;
+  var id;
   String main;
   String description;
   String iconID;

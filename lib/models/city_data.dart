@@ -1,23 +1,24 @@
 class CityData {
-  double lat;
-  double long;
+  var lat;
+  var long;
   WeatherList weatherList;
-  double temp;
-  double feelsLike;
-  double temp_min;
-  double temp_max;
-  int pressure;
-  int humidity;
+  var temp;
+  var feelsLike;
+  var tempMin;
+  var tempMax;
+  var pressure;
+  var humidity;
 
-  int visibility;
-  double windSpeed;
+  var visibility;
+  var windSpeed;
   int sunrise;
   int sunset;
 
   String country;
   String cityName;
 
-  CityData({this.lat,this.long,this.weatherList,this.temp,this.feelsLike,this.temp_min,this.temp_max,this.pressure,this.humidity
+
+  CityData({this.lat,this.long,this.weatherList,this.temp,this.feelsLike,this.tempMin,this.tempMax,this.pressure,this.humidity
   ,this.visibility,this.windSpeed,this.sunrise,this.sunset,this.cityName,this.country});
 
   factory CityData.fromJson(Map<String,dynamic> json) {
@@ -27,8 +28,8 @@ class CityData {
       weatherList: WeatherList.fromJson(json['weather']),
       temp: json['main']['temp'],
       feelsLike: json['main']['feels_like'],
-      temp_min: json['main']['temp_min'],
-      temp_max: json['main']['temp_max'],
+      tempMin: json['main']['temp_min'],
+      tempMax: json['main']['temp_max'],
       pressure: json['main']['pressure'],
       humidity: json['main']['humidity'],
       visibility: json['visibility'],

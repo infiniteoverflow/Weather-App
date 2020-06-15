@@ -1,7 +1,6 @@
 import 'dart:convert';
-import 'package:flutter_weather_icons/flutter_weather_icons.dart';
-import 'package:time_formatter/time_formatter.dart';
 
+import 'package:spring_button/spring_button.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart';
 import 'package:weather_app/models/city_data.dart';
@@ -15,10 +14,12 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
 
+  TextEditingController cityController = TextEditingController();
+  String city = "bangalore";
+
   @override
   Widget build(BuildContext context) {
 
-    String city = "jammu";
 
     return Scaffold(
       body: Center(
@@ -28,37 +29,6 @@ class _MyHomePageState extends State<MyHomePage> {
             if(snapshot.hasData) {
               return ListView(
                 children: <Widget>[
-                  // Text("Coordinates : \nLat: ${snapshot.data.lat} Long: ${snapshot.data.long}"),
-                
-                  // Text(
-                  //   "Main : \nTemp ${kelvinToCelcius(snapshot.data.temp)} degree feels_like: ${kelvinToCelcius(snapshot.data.feelsLike)} degree\n"
-                  // ),
-
-                  // Text(
-                  //   "Min Temp: ${kelvinToCelcius(snapshot.data.tempMin)} Max Temp: ${kelvinToCelcius(snapshot.data.tempMax)}\n"
-                  // ),
-
-                  // Text(
-                  //   "Pressure: ${snapshot.data.pressure} Humidity: ${snapshot.data.humidity}\n"
-                  // ),
-
-                  // Text(
-                  //   "Visibility: ${snapshot.data.visibility}\n"
-                  // ),
-
-                  // Text(
-                  //   "Wind Speed: ${snapshot.data.windSpeed}\n"
-                  // ),
-
-                  // Text(
-                  //   "Sunrise : ${timestampToTime(snapshot.data.sunrise)} , Sunset : ${timestampToTime(snapshot.data.sunset)}\n"
-                  // ),
-
-                  // Text(
-                  //   "Country : ${snapshot.data.country} City : ${snapshot.data.cityName}",
-                  // ),
-
-                  // weatherData(snapshot.data.weatherList.weathers),
 
                   Container(
                     padding: EdgeInsets.all(10.0),
@@ -69,6 +39,12 @@ class _MyHomePageState extends State<MyHomePage> {
                         
                       ),
                       keyboardType: TextInputType.text,
+                      controller: cityController,
+                      onSubmitted: (var value) {
+                        setState(() {
+                          city = value;
+                        });
+                      },
                     ),
                   ),
 
@@ -178,7 +154,28 @@ class _MyHomePageState extends State<MyHomePage> {
                         ),
                       ),
                     ],
-                  )
+                  ),
+
+                  Container(
+                    margin: EdgeInsets.only(top:20),
+                    alignment: Alignment.center,
+                    child: Card(
+                      child: Container(
+                        color: Colors.yellow,
+                        child: Padding(
+                          padding: EdgeInsets.symmetric(vertical:15,horizontal:40),
+                          child: Text(
+                            "More Info",
+                            style: TextStyle(
+                              fontSize: 20.0,
+                              fontWeight: FontWeight.bold
+                            ),
+                          ),
+                        ),
+                      ),
+                      elevation: 2,
+                    ),
+                  ),
 
                 ],
               );

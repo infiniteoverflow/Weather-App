@@ -6,10 +6,10 @@ class CityData {
   double feelsLike;
   double temp_min;
   double temp_max;
-  double pressure;
-  double humidity;
+  int pressure;
+  int humidity;
 
-  double visibility;
+  int visibility;
   double windSpeed;
   int sunrise;
   int sunset;

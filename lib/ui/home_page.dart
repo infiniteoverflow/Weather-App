@@ -16,6 +16,7 @@ class _MyHomePageState extends State<MyHomePage> {
   TextEditingController cityController = TextEditingController();
   String city = "bangalore";
   String previousCity = "bangalore";
+  String API_KEY = "<Your API Key>";
 
   @override
   Widget build(BuildContext context) {
@@ -440,7 +441,7 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   Future<CityData> loadCityData(String city) async {
-    final Response response = await get(Uri.encodeFull("http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=2281dd56bcf28a0895bcc81251ef8c52"));
+    final Response response = await get(Uri.encodeFull("http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}"));
     if(response.statusCode == 200) {
       return CityData.fromJson(json.decode(response.body));
     }

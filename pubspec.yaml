@@ -22,6 +22,8 @@ dependencies:
   http: ^0.12.1
   time_formatter: ^1.0.0+5
   flutter_weather_icons: ^1.0.2
+  spring_button: ^1.0.13
+  flutter_launcher_icons: ^0.7.5
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
@@ -30,6 +32,12 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
+
+flutter_icons:
+  ios: true
+  android: true
+  image_path_ios: "assets/images/sun_app.png"
+  image_path_android: "assets/images/sun_app.png"
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
@@ -54,6 +62,10 @@ flutter:
     - assets/images/shower.png
     - assets/images/snow.png
     - assets/images/thunder.png
+    - assets/images/black_clouds_dark.png
+    - assets/images/rain_cloud_dark.png
+    - assets/images/scattered_dark.png
+    - assets/images/moon.png
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
   # For details regarding adding assets from package dependencies, see
